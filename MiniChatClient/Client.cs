@@ -2,25 +2,20 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
-using System.IO;
 using System.Threading.Tasks;
 using System.Net;
 using System.Net.Sockets;
+using System.IO;
 
-namespace MiniChatServer
+namespace MiniChatClient
 {
-	public class Server
+	public class Client
 	{
-
-		
-
-		//Constructor
-		public Server()
+		public Client()
 		{
 
 		}
 
-		//Method
 		public void Start()
 		{
 			TcpListener TCPL = new TcpListener(IPAddress.Loopback, 7070);
@@ -52,12 +47,5 @@ namespace MiniChatServer
 				}
 			}
 		}
-
-		public void DoClient()
-		{
-				
-		}
-
-
 	}
 }
