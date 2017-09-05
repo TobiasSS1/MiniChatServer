@@ -10,11 +10,16 @@ namespace MiniChatServer
 	{
 		static void Main(string[] args)
 		{
+			Start();
 		}
 
-		public void Start()
+		public static void Start()
 		{
 			Server MyServer = new Server();
+
+			MyServer.Start();
+
+			Console.ReadLine();
 		}
 	}
 }

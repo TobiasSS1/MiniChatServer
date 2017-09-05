@@ -24,8 +24,8 @@ namespace MiniChatServer
 		public void Start()
 		{
 			TcpListener TCPL = new TcpListener(IPAddress.Loopback, 7070);
-			Start();
-
+			 TCPL.Start();
+			Console.WriteLine("Server");
 			while (true)
 			{
 				using (TcpClient socket = TCPL.AcceptTcpClient())
@@ -35,20 +35,13 @@ namespace MiniChatServer
 				{
 
 					string line = sr.ReadLine();
-					Console.WriteLine(line);
+					Console.WriteLine("Client: " + line);
 
 					string myLine = Console.ReadLine();
 					sw.WriteLine(myLine);
-
-					Console.WriteLine("Client: " + line);
-
 					sw.Flush();
 
-					if (line == "STOP" || myLine == "STOP")
-					{
-						sw.WriteLine();
-						sw.Flush();
-					}
+					
 				}
 			}
 		}

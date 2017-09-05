@@ -10,13 +10,16 @@ namespace MiniChatClient
 	{
 		static void Main(string[] args)
 		{
-
-
-			
+			Start();	
 		}
-		public void Start()
+
+		public static void Start()
 		{
 			Client MyClient = new Client();
+
+			MyClient.Start();
+
+			Console.ReadLine();
 		}
 	}
 }

@@ -18,34 +18,31 @@ namespace MiniChatClient
 
 		public void Start()
 		{
-			TcpListener TCPL = new TcpListener(IPAddress.Loopback, 7070);
-			Start();
+
+			Console.WriteLine("Client");
 
 			while (true)
 			{
-				using (TcpClient socket = TCPL.AcceptTcpClient())
+				using (TcpClient socket = new TcpClient("localhost", 7070))
 				using (NetworkStream ns = socket.GetStream())
 				using (StreamReader sr = new StreamReader(ns))
 				using (StreamWriter sw = new StreamWriter(ns))
 				{
 
-					string line = sr.ReadLine();
-					Console.WriteLine(line);
-
 					string myLine = Console.ReadLine();
 					sw.WriteLine(myLine);
-
-					Console.WriteLine("Client: " + line);
-
 					sw.Flush();
 
-					if (line == "STOP" || myLine == "STOP")
-					{
-						sw.WriteLine();
-						sw.Flush();
-					}
+					string line = sr.ReadLine();
+					Console.WriteLine("Server: " + line);
+
 				}
 			}
+		}
+
+		public void DoClient()
+		{
+
 		}
 	}
 }
