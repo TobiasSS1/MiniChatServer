@@ -36,6 +36,11 @@ namespace MiniChatClient
 					string line = sr.ReadLine();
 					Console.WriteLine("Server: " + line);
 
+					if (myLine == "STOP")
+					{
+						break;
+					}
+
 				}
 			}
 		}
